@@ -71,20 +71,43 @@ int cnt= 0;
 
 //Print from N to 1 (By Backtracking)
 
-void funBack2(int i,int N){
-    if(i>N){
+// void funBack2(int i,int N){
+//     if(i>N){
+//         return;
+//     }
+
+//     funBack2(i+1,N);
+
+//     cout<<i<<" ";
+    
+// }
+
+//sum of first n numbers
+
+//parametrerized way
+
+void sumOfN(int n, int sum){
+    if(n==0){
+        cout<<sum;
         return;
     }
 
-    funBack2(i+1,N);
+    return sumOfN(n-1,sum+n);
+}
 
-    cout<<i<<" ";
-    
+//functional way
+
+int sumOfN(int N){
+    if(N==1){
+        return 1;
+    }
+
+    return N+sumOfN(N-1);
 }
 
 int main()
 {
-    int i=1;
-    funBack2(i,5);
+    int n=5;
+    cout<<sumOfN(n);
     return 0;
 }
