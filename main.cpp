@@ -86,28 +86,69 @@ int cnt= 0;
 
 //parametrerized way
 
-void sumOfN(int n, int sum){
-    if(n==0){
-        cout<<sum;
-        return;
-    }
+// void sumOfN(int n, int sum){
+//     if(n==0){
+//         cout<<sum;
+//         return;
+//     }
 
-    return sumOfN(n-1,sum+n);
-}
+//     return sumOfN(n-1,sum+n);
+// }
 
 //functional way
 
-int sumOfN(int N){
-    if(N==1){
-        return 1;
+// int sumOfN(int N){
+//     if(N==1){
+//         return 1;
+//     }
+
+//     return N+sumOfN(N-1);
+// }
+
+// factorial of n
+
+
+// int factorial(int N){
+//     if(N==1){
+//         return 1;
+//     }
+
+//     return N*factorial(N-1);
+// }
+
+//reverse an array:
+
+int * rev(int arr[],int l,int r){
+    if(l==r){
+        return arr;
     }
 
-    return N+sumOfN(N-1);
+    int temp = arr[l];
+    arr[l] = arr[r];
+    arr[r] = temp;
+
+    return rev(arr,l+1,r-1);
 }
 
 int main()
 {
-    int n=5;
-    cout<<sumOfN(n);
+    int arr[] = {1,2,3,4,5};
+    int l = 0;
+    int r = (sizeof(arr)/sizeof(arr[0])) - 1;
+
+    cout<<"Before: "<<endl;
+
+    for(int i : arr){
+        cout<<i<<" ";
+    };
+
+    rev(arr,l,r);
+
+    cout<<endl<<"After"<<endl;
+
+    for(int i : arr){
+        cout<<i<<" ";
+    }
+
     return 0;
 }
