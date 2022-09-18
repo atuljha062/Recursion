@@ -134,17 +134,19 @@ int cnt= 0;
 
 //using one variable only
 
-int * rev1(int arr[],int i, int n){
-    if(i>=n/2){
-        return arr;
-    }
+// int * rev1(int arr[],int i, int n){
+//     if(i>=n/2){
+//         return arr;
+//     }
 
-    swap(arr[i],arr[n-i-1]);
+//     swap(arr[i],arr[n-i-1]);
 
-    return rev1(arr,i+1,n);
-}
+//     return rev1(arr,i+1,n);
+// }
 
 //check Palindrome string
+
+//two pointer way
 
 // bool checkPalin(string s, int l, int r){
 //     if(l>=r){
@@ -158,37 +160,37 @@ int * rev1(int arr[],int i, int n){
 
 // }
 
+//using one variable
+
+bool checkPalin(string s, int i){
+    int n = s.size();
+    if(i>=n/2){
+        return true;
+    }
+    
+    if(s.at(i) != s.at(n-i-1)){
+        return false;
+    }
+    return checkPalin(s,i+1);
+
+}
+
 int main()
 {
-    // string s = "helleh";
-    // int l = 0;
-    // int r = s.size()-1;
+    string s = "madam";
+    int l = 0;
+    int r = s.size()-1;
 
+    int i=0;
 
-    // bool isPalin = checkPalin(s,l,r);
+    bool isPalin = checkPalin(s,i);
 
-    // if(isPalin){
-    //     cout<<"Palindrome";
-    // }else{
-    //     cout<<"Not Palindrome";
-    // }
-
-    int arr[] = {1,2,3,4};
-    int n = sizeof(arr)/sizeof(arr[0]);
-
-    cout<<"Before: "<<endl;
-
-    for(int i : arr){
-        cout<<i<<" ";
-    };
-
-    rev1(arr,0,n);
-
-    cout<<endl<<"After"<<endl;
-
-    for(int i : arr){
-        cout<<i<<" ";
+    if(isPalin){
+        cout<<"Palindrome";
+    }else{
+        cout<<"Not Palindrome";
     }
+
 
     return 0;
 }
