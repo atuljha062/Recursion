@@ -162,35 +162,38 @@ int cnt= 0;
 
 //using one variable
 
-bool checkPalin(string s, int i){
-    int n = s.size();
-    if(i>=n/2){
-        return true;
-    }
+// bool checkPalin(string s, int i){
+//     int n = s.size();
+//     if(i>=n/2){
+//         return true;
+//     }
     
-    if(s.at(i) != s.at(n-i-1)){
-        return false;
-    }
-    return checkPalin(s,i+1);
+//     if(s.at(i) != s.at(n-i-1)){
+//         return false;
+//     }
+//     return checkPalin(s,i+1);
 
+// }
+
+//Multiple Recursion
+
+//Fibonacci Number
+
+int fibo(int n){
+    if(n<=1){
+        return n;
+    }
+
+    return fibo(n-1)+fibo(n-2);
 }
+
+
 
 int main()
 {
-    string s = "madam";
-    int l = 0;
-    int r = s.size()-1;
+    int n = 5;
 
-    int i=0;
-
-    bool isPalin = checkPalin(s,i);
-
-    if(isPalin){
-        cout<<"Palindrome";
-    }else{
-        cout<<"Not Palindrome";
-    }
-
+    cout<<fibo(n);
 
     return 0;
 }
